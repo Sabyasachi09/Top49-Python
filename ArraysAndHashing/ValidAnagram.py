@@ -21,6 +21,7 @@ def main():
     t = "nagaram"
     print(validAnagramSolutionOne(s, t))
     print(validAnagramSolutionTwo(s, t))
+    print(validAnagramSolutionThree(s, t))
 
 def validAnagramSolutionOne(s, t) -> bool:
     if len(s) != len(t):
@@ -47,6 +48,9 @@ def validAnagramSolutionTwo(s, t) -> bool:
     (like lists, strings, tuples) or from a mapping (dictionary). 
     """
     return Counter(s) == Counter(t)
+
+def validAnagramSolutionThree(s, t) -> bool:
+    return sorted(s) == sorted(t)
 
 if __name__ == "__main__":
     main()
