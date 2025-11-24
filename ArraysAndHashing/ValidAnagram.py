@@ -12,11 +12,15 @@ Sample Input: s = "rat", t = "car"
 Sample Output: false
 """
 
+from collections import Counter
+
+
 def main():
     print("Valid Anagram")
     s = "anagram"
     t = "nagaram"
     print(validAnagramSolutionOne(s, t))
+    print(validAnagramSolutionTwo(s, t))
 
 def validAnagramSolutionOne(s, t) -> bool:
     if len(s) != len(t):
@@ -34,6 +38,15 @@ def validAnagramSolutionOne(s, t) -> bool:
         if countS.get(count) != countT.get(count, 0):
             return False
     return True
+
+def validAnagramSolutionTwo(s, t) -> bool:
+    """
+    Counter() for efficiently counting hashable objects is the Counter class 
+    from the collections module. It is a specialized dictionary subclass designed for this purpose.
+    It provides an optimized way to count the occurrences of elements in an iterable 
+    (like lists, strings, tuples) or from a mapping (dictionary). 
+    """
+    return Counter(s) == Counter(t)
 
 if __name__ == "__main__":
     main()
