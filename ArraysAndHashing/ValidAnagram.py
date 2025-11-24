@@ -22,18 +22,16 @@ def validAnagramSolutionOne(s, t) -> bool:
     if len(s) != len(t):
         return False
     
-    refTableS = {}
-    refTableT = {}
+    countS = {}
+    countT = {}
     # add letter and their count in two different dictionary/map from string s and t
     for letter in range(len(s)):
-        letterCountInS = refTableS.get(s[letter], 0) +1
-        refTableS[s[letter]] = letterCountInS
-        letterCountInT = refTableT.get(t[letter], 0) +1
-        refTableT[t[letter]] = letterCountInT
+        countS[s[letter]] = 1 + countS.get(s[letter], 0)
+        countT[t[letter]] = 1 + countT.get(t[letter], 0)
     
     # Compare letter count in both dictionary/map, return false is mismatch
-    for letter in s:
-        if refTableS.get(letter) != refTableT.get(letter):
+    for count in countS:
+        if countS.get(count) != countT.get(count, 0):
             return False
     return True
 
