@@ -16,8 +16,8 @@ Sample Output: [1, 2]
 
 def main():
     print("Two Sum")
-    array = [2, 7, 11, 15]
-    target = 9
+    array = [3, 5, -4, 8, 11, 1, -1, 6]
+    target = 10
     print("Array: %r | target: %d" %(array, target))
     solutionOne = twoSumSolutionOne(array, target)
     solutionTwo = twoSumSolutionTwo(array, target)
