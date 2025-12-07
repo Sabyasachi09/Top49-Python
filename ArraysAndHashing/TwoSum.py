@@ -36,7 +36,7 @@ def printResult(result: list[int], target, solution):
 # Time Complexity: O(n) * O(n) = O(n^2)
 def twoSumSolutionOne(array: list[int], target: int):
     for lp in range(len(array)):
-        for rp in range(len(array)):
+        for rp in range(lp+1, len(array)):
             if array[lp] + array[rp] == target:
                 return [lp, rp]
     return []
