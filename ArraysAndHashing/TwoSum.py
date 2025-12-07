@@ -21,8 +21,10 @@ def main():
     print("Array: %r | target: %d" %(array, target))
     solutionOne = twoSumSolutionOne(array, target)
     solutionTwo = twoSumSolutionTwo(array, target)
+    solutionThree = twoSumSolutionThree(array, target)
     printResult(solutionOne, target, "One")
     printResult(solutionTwo, target, "Two")
+    printResult(solutionThree, target, "Three")
 
 def printResult(result: list[int], target, solution):
     if result:
@@ -53,7 +55,19 @@ def twoSumSolutionTwo(array: list[int], target: int):
             rp -= 1
         else:
             lp += 1
-    return [] 
+    return []
+
+# This solution uses dictionary to store traversed values for future reference.
+# Time Complexity: O(n) + O(1) + O(1) = O(n)
+def twoSumSolutionThree(array: list[int], target: int):
+    refTable = {}
+    for lp in range(len(array)):
+        targetValue = target - array[lp]
+        if targetValue in refTable:
+            return [lp, refTable.get(targetValue)]
+        else:
+            refTable[array[lp]] = lp
+    return []
 
 if __name__ == "__main__":
     main()
